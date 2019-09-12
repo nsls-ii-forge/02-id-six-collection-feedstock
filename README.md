@@ -9,7 +9,6 @@ Feedstock license: BSD 3-Clause
 
 Summary: Collection metapackage for SIX beamline
 
-Collection metapackage for SIX beamline.
 
 
 Current build status
