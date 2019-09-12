@@ -1,0 +1,49 @@
+{% set name = "02-id-six-collection" %}
+{% set year = "2019" %}
+{% set cycle = "3" %}
+{% set version = "0" %}
+{% set micro = "1" %}
+
+package:
+  name: {{ name | lower }}
+  version: {{ year }}C{{ cycle }}.{{ version }}.{{ micro }}
+
+build:
+  skip: True  # [py<36]
+  number: 0
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+    - sixtools >=0.0.2
+    - analysis >=2019C3.0.1
+    - caproto <0.4.0
+    - nslsii >=0.0.11
+    - pyepics <3.4.0
+    - pykafka
+    - pyolog >=4.4.0
+    - pyserial
+    - python-confluent-kafka  # [not win]
+
+test:
+  imports:
+    - bluesky
+    - caproto
+    - databroker
+    - event_model
+    - nslsii
+    - ophyd
+    - sixtools
+  commands:
+    - python -V
+    - ipython -V
+
+about:
+  home: https://github.com/NSLS-II-SIX
+  license: BSD 3-Clause
+  license_file: LICENSE
+  summary: Collection metapackage for SIX beamline
+  description: |
+    Collection metapackage for SIX beamline. 
