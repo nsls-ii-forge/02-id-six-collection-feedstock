@@ -13,7 +13,7 @@ jobs:
       win_:
         CONFIG: win_
         CONDA_BLD_PATH: D:\\bld\\
-        UPLOAD_PACKAGES: False
+        UPLOAD_PACKAGES: True
   steps:
     # TODO: Fast finish on azure pipelines?
     - script: |
@@ -96,6 +96,7 @@ jobs:
 
     - script: |
         set "GIT_BRANCH=%BUILD_SOURCEBRANCHNAME%"
+        set "UPLOAD_ON_BRANCH=master"
         upload_package .\ .\recipe .ci_support\%CONFIG%.yaml
       env:
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
